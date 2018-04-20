@@ -18,6 +18,10 @@ import java.awt.event.ActionEvent;
 
 public class DodajKursGUI extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel eastPanel;
 	private JPanel westPanel;
@@ -37,23 +41,23 @@ public class DodajKursGUI extends JFrame {
 	private JTextField textFieldSkrNaziv;
 	private JButton btnOdustani;
 
-	private MenjacnicaGUI gp;
+	private MenjacnicaGUI gui;
 	/**
 	 * Create the frame.
 	 */
-	public DodajKursGUI(MenjacnicaGUI gp) {
+	public DodajKursGUI(MenjacnicaGUI gui) {
 		setTitle("Dodaj kurs");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 400, 300);
-		setLocationRelativeTo(gp);
+		setLocationRelativeTo(gui);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		contentPane.add(getEastPanel(), BorderLayout.EAST);
 		contentPane.add(getWestPanel(), BorderLayout.WEST);
-		this.gp=gp;
+		this.gui=gui;
 	}
 
 	private JPanel getEastPanel() {
@@ -151,7 +155,7 @@ public class DodajKursGUI extends JFrame {
 							+ ", skraceni naziv: " + textFieldSkrNaziv.getText() + ", prodajni kurs: "
 							+ textFieldPKurs.getText() + ", srednji kurs: " + textFieldSKurs.getText()
 							+ ", kupovni kurs: " + textFieldKKurs.getText();
-					gp.ispisiUStatusu(kurs);
+					gui.ispisiUStatusu(kurs);
 					dispose();
 				}				
 			});

@@ -165,6 +165,12 @@ public class MenjacnicaGUI extends JFrame {
 		if (btnObrisiKurs == null) {
 			btnObrisiKurs = new JButton("Obrisi kurs");
 			btnObrisiKurs.setPreferredSize(new Dimension(131, 25));
+			btnObrisiKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					ObrisiKursGUI obrisiKurs = new ObrisiKursGUI(gui);
+					obrisiKurs.setVisible(true);
+				}
+			});
 		}
 		return btnObrisiKurs;
 	}
@@ -349,6 +355,12 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmObrisiKurs() {
 		if (mntmObrisiKurs == null) {
 			mntmObrisiKurs = new JMenuItem("Obrisi kurs");	
+			mntmObrisiKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					ObrisiKursGUI obrisiKurs = new ObrisiKursGUI(gui);
+					obrisiKurs.setVisible(true);
+				}
+			});
 		}
 		return mntmObrisiKurs;
 	}
