@@ -178,6 +178,12 @@ public class MenjacnicaGUI extends JFrame {
 	private JButton getBtnIzvrsiZamenu() {
 		if (btnIzvrsiZamenu == null) {
 			btnIzvrsiZamenu = new JButton("Izvrsi zamenu");
+			btnIzvrsiZamenu.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					IzvrsiZamenuGUI zameniKurs = new IzvrsiZamenuGUI(gui);
+					zameniKurs.setVisible(true);
+				}
+			});
 		}
 		return btnIzvrsiZamenu;
 	}
@@ -368,6 +374,12 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmIzvrsiZamenu() {
 		if (mntmIzvrsiZamenu == null) {
 			mntmIzvrsiZamenu = new JMenuItem("Izvrsi zamenu");
+			mntmIzvrsiZamenu.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					IzvrsiZamenuGUI zameniKurs = new IzvrsiZamenuGUI(gui);
+					zameniKurs.setVisible(true);
+				}
+			});
 		}
 		return mntmIzvrsiZamenu;
 	}
