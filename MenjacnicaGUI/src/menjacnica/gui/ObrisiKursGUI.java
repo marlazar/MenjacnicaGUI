@@ -201,7 +201,7 @@ public class ObrisiKursGUI extends JFrame {
 					dispose();
 				}
 			});
-			btnOdustani.setBounds(30, 253, 117, 25);
+			btnOdustani.setBounds(30, 236, 117, 25);
 		}
 		return btnOdustani;
 	}
@@ -220,7 +220,7 @@ public class ObrisiKursGUI extends JFrame {
 				}
 			});
 			btnObrisi.setEnabled(false);
-			btnObrisi.setBounds(42, 253, 117, 25);
+			btnObrisi.setBounds(45, 236, 117, 25);
 		}
 		return btnObrisi;
 	}
