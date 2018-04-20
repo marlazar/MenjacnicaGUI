@@ -92,6 +92,13 @@ public class MenjacnicaGUI extends JFrame {
 	 */
 	public MenjacnicaGUI() {
 
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+				izlaz();
+			}
+		});
+		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenjacnicaGUI.class.getResource("/javax/swing/plaf/basic/icons/JavaCup16.png")));
 		setTitle("Menjacnica");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -184,6 +191,12 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmOpen() {
 		if (mntmOpen == null) {
 			mntmOpen = new JMenuItem("Open");
+			mntmOpen.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					otvori();
+
+				}
+			});
 			mntmOpen.setIcon(new ImageIcon(
 					MenjacnicaGUI.class.getResource("/javax/swing/plaf/metal/icons/ocean/directory.gif")));
 			mntmOpen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK));
@@ -194,6 +207,12 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmSave() {
 		if (mntmSave == null) {
 			mntmSave = new JMenuItem("Save");
+			mntmSave.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					sacuvaj();
+
+				}
+			});
 			mntmSave.setIcon(
 					new ImageIcon(MenjacnicaGUI.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
 			mntmSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
@@ -204,6 +223,12 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmExit() {
 		if (mntmExit == null) {
 			mntmExit = new JMenuItem("Exit");
+			mntmExit.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					izlaz();
+				}
+
+			});
 			mntmExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.ALT_MASK));
 		}
 		return mntmExit;
@@ -320,6 +345,35 @@ public class MenjacnicaGUI extends JFrame {
 			mntmIzvrsiZamenu = new JMenuItem("Izvrsi zamenu");
 		}
 		return mntmIzvrsiZamenu;
+	}
+	
+	private void izlaz() {
+		int opcija = JOptionPane.showConfirmDialog(null, "Da li ste sigurni da zelite da izadjete?", "Izlaz",
+				JOptionPane.YES_NO_CANCEL_OPTION);
+		if (opcija == JOptionPane.YES_OPTION)
+			System.exit(0);
+
+	}
+
+	private void sacuvaj() {
+		JFileChooser jc = new JFileChooser();
+		int retVal = jc.showSaveDialog(contentPane);
+		if (retVal == JFileChooser.APPROVE_OPTION) {
+			File f = jc.getSelectedFile();
+			textAreaStatus.append("\nSacuvan fajl: " + f);
+		}
+	}
+
+	private void otvori() {
+		JFileChooser jc = new JFileChooser();
+		int retVal = jc.showOpenDialog(contentPane);
+		if (retVal == JFileChooser.APPROVE_OPTION) {
+			File f = jc.getSelectedFile();
+			textAreaStatus.append("\nUcitan fajl: " + f);
+		}
+	}
+	void ispisiUStatusu(String s) {
+		textAreaStatus.append("\n"+s);
 	}
 
 	
