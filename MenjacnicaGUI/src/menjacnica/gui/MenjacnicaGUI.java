@@ -70,6 +70,7 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem mntmDodajKurs;
 	private JMenuItem mntmObrisiKurs;
 	private JMenuItem mntmIzvrsiZamenu;
+	private MenjacnicaGUI gui =this;
 
 	/**
 	 * Launch the application.
@@ -150,6 +151,12 @@ public class MenjacnicaGUI extends JFrame {
 		if (btnDodajKurs == null) {
 			btnDodajKurs = new JButton("Dodaj kurs");
 			btnDodajKurs.setPreferredSize(new Dimension(131, 25));
+			btnDodajKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					DodajKursGUI dodajKurs = new DodajKursGUI(gui);
+					dodajKurs.setVisible(true);
+				}
+			});
 		}
 		return btnDodajKurs;
 	}
@@ -328,7 +335,13 @@ public class MenjacnicaGUI extends JFrame {
 
 	private JMenuItem getMntmDodajKurs() {
 		if (mntmDodajKurs == null) {
-			mntmDodajKurs = new JMenuItem("Dodaj kurs");		
+			mntmDodajKurs = new JMenuItem("Dodaj kurs");
+			btnDodajKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					DodajKursGUI dodajKurs = new DodajKursGUI(gui);
+					dodajKurs.setVisible(true);
+				}
+			});
 		}
 		return mntmDodajKurs;
 	}
