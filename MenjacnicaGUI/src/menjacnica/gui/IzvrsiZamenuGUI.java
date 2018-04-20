@@ -201,7 +201,7 @@ public class IzvrsiZamenuGUI extends JFrame {
 					dispose();
 				}
 			});
-			btnIzvrsiZamenu.setBounds(50, 296, 144, 25);
+			btnIzvrsiZamenu.setBounds(51, 285, 144, 25);
 		}
 		return btnIzvrsiZamenu;
 	}
@@ -214,7 +214,7 @@ public class IzvrsiZamenuGUI extends JFrame {
 					dispose();
 				}
 			});
-			btnOdustani.setBounds(275, 296, 117, 25);
+			btnOdustani.setBounds(272, 285, 117, 25);
 		}
 		return btnOdustani;
 	}
